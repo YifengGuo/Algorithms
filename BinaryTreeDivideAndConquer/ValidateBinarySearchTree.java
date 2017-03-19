@@ -18,8 +18,8 @@ public class ValidateBinarySearchTree {
 			this.left = this.right = null;
 		}
 	}
-	/*
-	 * 根据bst的定义，判断是否是bst需要用到三个值，子树是否bst，最大值，最小值
+	/* bst in-order traversal must be ascending;
+	 * 根据bst的定义，判断是否是bst需要用到三个值，子树是否bst，左子树最大值是否比根节点小，右子树最小值是否比根节点大;
 	 */
 	private class ResultType {
 		boolean isBst;
@@ -34,7 +34,8 @@ public class ValidateBinarySearchTree {
 
 	public ResultType validateHelper(TreeNode root) {
 		if (root == null) {
-			return new ResultType(true, Integer.MIN_VALUE, Integer.MAX_VALUE);//产生非法值跳出递归时应给一个绝对安全的值用于下一段递归的正常比较；max就用Integer.MIN_VALUE,min Integer.MAX_VALUE
+			//产生非法值跳出递归时应给一个绝对安全的值用于下一段递归的正常比较；所以必须穿true才能继续递归，此时max就用Integer.MIN_VALUE,min Integer.MAX_VALUE保证结果不出错;
+			return new ResultType(true, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		}
 		//divide 分别递归左子树和右子树;
 		ResultType left = validateHelper(root.left);
