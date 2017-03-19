@@ -17,7 +17,11 @@ Return index 1 (which is number 2) or 6 (which is number 7)
 
 
 */
-
+/**
+ * 
+ * @author guoyifeng
+ *思路：首先判断A[mid]和A[mid - 1]的相对大小来判断是在上坡还是下坡来缩小查找空间;
+ */
 public class FindPeakIndexOfArray {
 	public int findPeak(int[] A) {
 		if (A == null || A.length == 0) {

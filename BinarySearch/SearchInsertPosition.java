@@ -14,6 +14,7 @@ package com.yifeng.BinarySearch;
 
 	[1,3,5,6], 0 → 0
 
+idea: to find the first position >= target;
 
  */
 public class SearchInsertPosition {
@@ -42,7 +43,7 @@ public class SearchInsertPosition {
 		} else if(A[end] >= target){
 			return end;
 		} else{//说明target比数组中所有的数都大；
-			return A.length;
+			return A.length ;
 		}
     }
 }
